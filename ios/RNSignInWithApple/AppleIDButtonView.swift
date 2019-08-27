@@ -17,13 +17,13 @@ class AppleIDButtonView: UIView {
     
     lazy private var appleIDButton: ASAuthorizationAppleIDButton = initAuthorizationAppleIDButton();
     
-    @objc var buttonTypeRawValue: Int = ButtonType.default.rawValue {
+    @objc var buttonTypeRawValue: Int = ASAuthorizationAppleIDButton.ButtonType.default.rawValue {
         didSet {
             reinitAuthorizationAppleIDButton();
         }
     }
     
-    @objc var buttonStyleRawValue: Int = ButtonStyle.black.rawValue {
+    @objc var buttonStyleRawValue: Int = ASAuthorizationAppleIDButton.Style.black.rawValue {
         didSet {
             reinitAuthorizationAppleIDButton();
         }
@@ -45,8 +45,8 @@ class AppleIDButtonView: UIView {
     }
     
     private func initAuthorizationAppleIDButton() -> ASAuthorizationAppleIDButton {
-        let buttonType: ButtonType = ButtonType(rawValue: buttonTypeRawValue) ?? ButtonType.default;
-        let buttonStyle: ButtonStyle = ButtonStyle(rawValue: buttonStyleRawValue) ?? ButtonStyle.black;
+        let buttonType: ASAuthorizationAppleIDButton.ButtonType = ASAuthorizationAppleIDButton.ButtonType(rawValue: buttonTypeRawValue) ?? ASAuthorizationAppleIDButton.ButtonType.default;
+        let buttonStyle: ASAuthorizationAppleIDButton.Style = ASAuthorizationAppleIDButton.Style(rawValue: buttonStyleRawValue) ?? ASAuthorizationAppleIDButton.Style.black;
         return ASAuthorizationAppleIDButton(type: buttonType, style: buttonStyle);
     }
     

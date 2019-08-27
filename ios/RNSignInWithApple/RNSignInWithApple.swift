@@ -34,14 +34,14 @@ class RNSignInWithApple: NSObject {
                 "email": ASAuthorization.Scope.email.rawValue,
             ];
             buttonStyles = [
-                "black": ButtonStyle.black.rawValue,
-                "white": ButtonStyle.white.rawValue,
-                "whiteOutline": ButtonStyle.whiteOutline.rawValue,
+                "black": ASAuthorizationAppleIDButton.Style.black.rawValue,
+                "white": ASAuthorizationAppleIDButton.Style.white.rawValue,
+                "whiteOutline": ASAuthorizationAppleIDButton.Style.whiteOutline.rawValue,
             ];
             buttonTypes = [
-                "default": ButtonType.default.rawValue,
-                "continue": ButtonType.continue.rawValue,
-                "signUp": ButtonType.signUp.rawValue,
+                "default": ASAuthorizationAppleIDButton.ButtonType.default.rawValue,
+                "continue":ASAuthorizationAppleIDButton.ButtonType.continue.rawValue,
+                "signUp": ASAuthorizationAppleIDButton.ButtonType.signIn.rawValue,
             ];
             isAvailable = true;
         }
