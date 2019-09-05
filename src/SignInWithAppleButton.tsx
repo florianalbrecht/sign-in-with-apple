@@ -1,27 +1,28 @@
-import React from 'react';
+import React from "react";
 import {
   requireNativeComponent,
   StyleProp,
   StyleSheet,
   Text,
   View,
-  ViewStyle,
-} from 'react-native';
-import { SignInWithApple } from './SignInWithApple';
+  ViewStyle
+} from "react-native";
+import { SignInWithApple } from "./SignInWithApple";
 import {
   ButtonStyle,
   ButtonType,
   AuthScope,
   AuthorizationCredentials,
-  AuthorizationError,
-} from './Types';
+  AuthorizationError
+} from "./Types";
 
 export interface SignInButtonProps {
   buttonStyle: ButtonStyle;
   buttonType: ButtonType;
   scopes: [AuthScope];
-  state?: String;
+  state?: string;
   style?: StyleProp<ViewStyle>;
+  renderNotAvailable?: boolean;
   onAuthorizationSuccess: (credentials: AuthorizationCredentials) => void;
   onAuthorizationError: (error: AuthorizationError) => void;
 }
@@ -46,31 +47,31 @@ export const SignInButton: React.FC<SignInButtonProps> = props => {
       onPress={onPress}
       style={[DEFAULT_APPLE_ID_BUTTON_STYLE, props.style]}
     />
-  ) : (
+  ) : props.renderNotAvailable ? (
     <StupButton />
-  );
+  ) : null;
 };
 
 const StupButton: React.FC = () => (
   <View
     style={{
       borderWidth: StyleSheet.hairlineWidth,
-      borderColor: 'red',
+      borderColor: "red",
       borderRadius: 8,
       paddingHorizontal: 20,
-      paddingVertical: 10,
+      paddingVertical: 10
     }}
   >
-    <Text style={{ color: 'red', textAlign: 'center' }}>
+    <Text style={{ color: "red", textAlign: "center" }}>
       "Sign in with Apple" is available on iOS&nbsp;13.0&nbsp;and&nbsp;newer
     </Text>
   </View>
 );
 
-const NativeView = requireNativeComponent('SingInButtonView');
+const NativeView = requireNativeComponent("SingInButtonView");
 
 const DEFAULT_APPLE_ID_BUTTON_STYLE = {
   minWidth: 100,
   height: 44,
-  width: '100%',
+  width: "100%"
 };

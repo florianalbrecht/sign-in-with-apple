@@ -1,18 +1,18 @@
 export enum ButtonType {
   default,
   signUp,
-  continue,
+  continue
 }
 
 export enum ButtonStyle {
   white,
   whiteOutline,
-  black,
+  black
 }
 
 export enum AuthScope {
-  email = 'email',
-  fullName = 'full_name',
+  email = "email",
+  fullName = "full_name"
 }
 
 export interface ModuleConstants {
@@ -23,29 +23,29 @@ export interface ModuleConstants {
 }
 
 export interface PersonNameComponents {
-  familyName?: String;
-  givenName?: String;
-  middleName?: String;
-  namePrefix?: String;
-  nameSuffix?: String;
-  nickname?: String;
+  familyName: string;
+  givenName: string;
+  middleName?: string;
+  namePrefix?: string;
+  nameSuffix?: string;
+  nickname?: string;
   phoneticRepresentation?: PersonNameComponents;
 }
 
-export type UserDetectionStatus = 'unknown' | 'unsopported' | 'likelyReal';
+export type UserDetectionStatus = "unknown" | "unsopported" | "likelyReal";
 
 export interface AuthorizationCredentials {
-  user: String;
-  state?: String;
-  authorizedScopes: [AuthScope];
-  authorizationCode?: String;
+  user: string;
+  state?: string;
+  authorizedScopes: AuthScope[];
+  authorizationCode: string;
   identityToken?: String;
-  email?: String;
+  email: string;
   fullName: PersonNameComponents;
   realUserStatus: UserDetectionStatus;
 }
 
 export interface AuthorizationError {
-  code: 'ASAUTHORIZATION_ERROR';
+  code: "ASAUTHORIZATION_ERROR";
   message: String;
 }
